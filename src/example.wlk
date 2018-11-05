@@ -10,7 +10,7 @@ class Materia{
 
 }
 
-
+// TODO Nombre poco descriptivo
 class Prerrequisito1 inherits Materia{
 	
 	var property materiaEsCorrelativaDe = #{} 	
@@ -21,6 +21,7 @@ class Prerrequisito1 inherits Materia{
 	}		
 }
 
+// TODO Nombre poco descriptivo
 class Prerrequisito2 inherits Prerrequisito1{
 	var property creditosNecesarios
 	override method prerrequisitos(estudiante){
@@ -34,7 +35,10 @@ class Prerrequisito2 inherits Prerrequisito1{
 class Estudiante{
 	var property materiasAprobadas // es una lista de objetos "materiaAprobada" 
 	method puedeCursarMateria(materia){
-		return !materia.estaInscripto(self) and !materiasAprobadas.contains(materia) and materia.prerrequisito(self) 	
+		return !materia.estaInscripto(self) 
+		// TODO Arriba dice que es una lista de materias aprobadas, pero esto parece indicar que es una lista de materias. 
+		and !materiasAprobadas.contains(materia) 
+		and materia.prerrequisito(self) 	
 	}
 	
 	
